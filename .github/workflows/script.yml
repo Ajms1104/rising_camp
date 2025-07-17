@@ -30,7 +30,7 @@ jobs:
       - name: docker image build
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/github-actions-demo .
 
-      # (2) Docker 이미지 빌드 2) Docker Hub 에 Login
+      # (2) Docker 이미지 빌드 2) Docker Hub 에 Login | + github에서 설정 
       - name: docker login
         uses: docker/login-action@v2
         with:
