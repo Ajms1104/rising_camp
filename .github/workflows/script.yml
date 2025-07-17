@@ -52,7 +52,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2
+          aws-region: ap-east-2
 
       # (3) CD : Docker 컨테이너 수행 3) Add github ip to AWS
       - name: Add GitHub IP to AWS
@@ -72,7 +72,7 @@ jobs:
             sudo docker stop github-actions-demo
             sudo docker rm github-actions-demo
             sudo docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/github-actions-demo
-            sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/github-actions-demo
+#           sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/github-actions-demo
             sudo docker run -it -d -p 8080:8080 --name github-actions-demo ${{ secrets.DOCKERHUB_USERNAME }}/github-actions-demo
 
       # (3) CD : Docker 컨테이너 수행 5) Remove Github IP from security group
